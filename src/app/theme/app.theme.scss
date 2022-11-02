@@ -1,0 +1,27 @@
+@use '~@angular/material' as mat;
+@import 'color-palettes/app-dark-blue.palette';
+@import 'color-palettes/app-light-blue.palette';
+@import 'color-palettes/app-red.palette';
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../../assets/fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+$primary-palette: mat.define-palette($app-light-blue-palette);
+$accent-palette: mat.define-palette($app-dark-blue-palette);
+$warn-palette: mat.define-palette($app-red-palette);
+
+$primary-font: 'Inter', sans-serif;
+$off-white: #F8FAFC;
+$body-text-color: #484954;
+
+$app-theme: mat.define-light-theme((
+    color: (
+        primary: $primary-palette,
+        accent: $accent-palette,
+        warn: $warn-palette
+    )
+));
