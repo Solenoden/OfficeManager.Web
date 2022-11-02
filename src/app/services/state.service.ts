@@ -3,7 +3,8 @@ import { Office } from '../models/office.model'
 import { Injectable } from '@angular/core'
 
 export enum StateKey {
-    Offices = 'offices'
+    Offices = 'offices',
+    SelectedOfficeId = 'selectedOfficeId'
 }
 
 export interface StateItem<StateType> { currentValue: StateType, valueStream: Subject<StateType> }
@@ -11,7 +12,8 @@ export interface StateItem<StateType> { currentValue: StateType, valueStream: Su
 @Injectable({ providedIn: 'root' })
 export class StateService {
     private state: { [key in StateKey]: StateItem<any> } = {
-        [StateKey.Offices]: this.buildStateItem<Office[]>([])
+        [StateKey.Offices]: this.buildStateItem<Office[]>([]),
+        [StateKey.SelectedOfficeId]: this.buildStateItem<number>(null),
     }
 
     public setState<StateType>(stateKey: StateKey, newValue: StateType): void {
