@@ -24,12 +24,12 @@ export class StateService {
 
     public getStateValue<StateType>(stateKey: StateKey): StateType {
         const stateItem = this.state[stateKey]
-        return stateItem?.currentValue
+        return stateItem?.currentValue as StateType
     }
 
     public getStateValueStream<StateType>(stateKey: StateKey): Subject<StateType> {
         const stateItem = this.state[stateKey]
-        return stateItem?.valueStream
+        return stateItem?.valueStream as Subject<StateType>
     }
 
     private buildStateItem<StateType>(initialValue: StateType): StateItem<StateType> {

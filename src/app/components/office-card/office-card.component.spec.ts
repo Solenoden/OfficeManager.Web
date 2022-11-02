@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { OfficeCardComponent } from './office-card.component';
+import { OfficeCardComponent } from './office-card.component'
 
 describe('OfficeCardComponent', () => {
-  let component: OfficeCardComponent;
-  let fixture: ComponentFixture<OfficeCardComponent>;
+    let component: OfficeCardComponent
+    let fixture: ComponentFixture<OfficeCardComponent>
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ OfficeCardComponent ]
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [OfficeCardComponent]
+        })
+            .compileComponents()
     })
-    .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(OfficeCardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(OfficeCardComponent)
+        component = fixture.componentInstance
+        fixture.detectChanges()
+    })
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    it('should create', () => {
+        expect(component).toBeTruthy()
+    })
+})

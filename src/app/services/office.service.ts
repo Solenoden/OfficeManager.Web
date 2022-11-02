@@ -24,6 +24,7 @@ export class OfficeService {
     public retrieveOffices(): Observable<Office[]> {
         return new Observable<Office[]>(observer => {
             this.httpService.get('/office').subscribe(result => {
+                // eslint-disable-next-line no-extra-parens
                 const offices = (result as Record<string, unknown>[]).map(currentOffice => new Office(currentOffice))
                 this.stateService.setState<Office[]>(StateKey.Offices, offices)
 
