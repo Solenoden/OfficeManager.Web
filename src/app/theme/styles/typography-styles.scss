@@ -1,0 +1,12 @@
+@use '~@angular/material' as material;
+@import '../app.theme';
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: $primary-font;
+    line-height: 1;
+    color: $text-color;
+}
