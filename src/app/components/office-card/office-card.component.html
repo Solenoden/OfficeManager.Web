@@ -1,0 +1,40 @@
+<div id="card" class="column">
+    <div class="row space-between">
+        <h3>{{ office.name }}</h3>
+        <img src="./assets/icons/edit-icon.svg" alt="edit icon">
+    </div>
+
+    <div class="row">
+        <img src="./assets/icons/group-greyscale-icon.svg" alt="group icon">
+        <!--    TODO: Dynamically display amount of members linked to the office    -->
+        <span><strong>5</strong> Staff Members in Office</span>
+    </div>
+
+    <div id="divider"></div>
+
+    <div class="row justify-content-center" (click)="toggleCard()">
+        <span class="mr-3">More info</span>
+        <img *ngIf="isCardExpanded" src="./assets/icons/chevron-up-icon.svg" alt="chevron up icon">
+        <img *ngIf="!isCardExpanded" src="./assets/icons/chevron-down-icon.svg" alt="chevron down icon">
+    </div>
+
+    <div *ngIf="isCardExpanded" id="more-info-section">
+        <div class="row">
+            <img src="./assets/icons/phone-icon.svg" alt="phone number">
+            <span>{{ office.phoneNumber }}</span>
+        </div>
+        <div class="row">
+            <img src="./assets/icons/email-icon.svg" alt="email address">
+            <span>{{ office.emailAddress }}</span>
+        </div>
+        <div class="row">
+            <img src="./assets/icons/group-colour-icon.svg" alt="maximum capacity">
+            <span>Office Capacity: {{ office.maximumCapacity }}</span>
+        </div>
+        <div class="row">
+            <img src="./assets/icons/address-icon.svg" alt="address">
+            <span>{{ office.address }}</span>
+        </div>
+    </div>
+
+</div>

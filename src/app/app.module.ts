@@ -11,11 +11,13 @@ import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import { MatDialogModule } from '@angular/material/dialog';
+import { OfficeCardComponent } from './components/office-card/office-card.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        OfficeListPageComponent
+        OfficeListPageComponent,
+        OfficeCardComponent
     ],
     imports: [
         BrowserModule,
