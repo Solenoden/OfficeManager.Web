@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { OfficeOverviewPageComponent } from './office-overview-page.component'
 
-import { OfficeCardComponent } from './office-card.component'
-
-describe('OfficeCardComponent', () => {
-    let component: OfficeCardComponent
-    let fixture: ComponentFixture<OfficeCardComponent>
+describe('OfficeOverviewPageComponent', () => {
+    let component: OfficeOverviewPageComponent
+    let fixture: ComponentFixture<OfficeOverviewPageComponent>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [OfficeCardComponent]
+            declarations: [OfficeOverviewPageComponent]
         })
             .compileComponents()
     })
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(OfficeCardComponent)
+        fixture = TestBed.createComponent(OfficeOverviewPageComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

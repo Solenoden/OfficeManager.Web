@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { NavigationBarComponent } from './navigation-bar.component'
 
-import { OfficeCardComponent } from './office-card.component'
-
-describe('OfficeCardComponent', () => {
-    let component: OfficeCardComponent
-    let fixture: ComponentFixture<OfficeCardComponent>
+describe('NavigationBarComponent', () => {
+    let component: NavigationBarComponent
+    let fixture: ComponentFixture<NavigationBarComponent>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [OfficeCardComponent]
+            declarations: [NavigationBarComponent]
         })
             .compileComponents()
     })
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(OfficeCardComponent)
+        fixture = TestBed.createComponent(NavigationBarComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

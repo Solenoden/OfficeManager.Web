@@ -7,7 +7,7 @@ describe('HomePageComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ OfficeListPageComponent ]
+            declarations: [OfficeListPageComponent]
         }).compileComponents()
     })
 

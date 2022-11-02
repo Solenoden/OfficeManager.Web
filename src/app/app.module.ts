@@ -10,14 +10,18 @@ import { FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
-import { MatDialogModule } from '@angular/material/dialog';
-import { OfficeCardComponent } from './components/office-card/office-card.component';
+import { MatDialogModule } from '@angular/material/dialog'
+import { OfficeCardComponent } from './components/office-card/office-card.component'
+import { OfficeOverviewPageComponent } from './components/pages/office-overview-page/office-overview-page.component'
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component'
 
 @NgModule({
     declarations: [
         AppComponent,
         OfficeListPageComponent,
-        OfficeCardComponent
+        OfficeCardComponent,
+        OfficeOverviewPageComponent,
+        NavigationBarComponent
     ],
     imports: [
         BrowserModule,
