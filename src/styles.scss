@@ -2,6 +2,7 @@
 
 @import './app/theme/app.theme';
 @import 'app/theme/styles/typography-styles';
+@import 'app/theme/styles/input-control-styles';
 
 @include material.all-component-themes($app-theme);
 @include material.core();
@@ -29,6 +30,8 @@ body {
     margin: 0;
 }
 
-.space-between {
-    justify-content: space-between;
+.vertically-align {
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
 }
