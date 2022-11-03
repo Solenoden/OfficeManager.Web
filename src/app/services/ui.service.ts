@@ -22,7 +22,8 @@ export class UiService {
         if (messageOverride) {
             text = messageOverride
         } else if (activityInContinuousPresentTense) {
-            text = `An unexpected error occurred while ${activityInContinuousPresentTense.toLowerCase()}. Please try again later.`
+            text = `An unexpected error occurred while ${activityInContinuousPresentTense.toLowerCase()}.
+            Please try again later.`
         }
         this.snackBar.open(text, 'OK', { panelClass: ['toast', 'toast-error'] })
     }

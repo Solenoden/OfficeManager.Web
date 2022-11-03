@@ -9,14 +9,13 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import { MatDialogModule } from '@angular/material/dialog'
 import { OfficeCardComponent } from './components/office-card/office-card.component'
 import { OfficeOverviewPageComponent } from './components/pages/office-overview-page/office-overview-page.component'
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component'
-import { OfficeMemberItemComponent } from './components/office-member-item/office-member-item.component';
+import { OfficeMemberItemComponent } from './components/office-member-item/office-member-item.component'
 import { OfficeDetailsPageComponent } from './components/pages/office-details-page/office-details-page.component'
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field'
 import { SimpleFormInputComponent } from './components/simple-form-input/simple-form-input.component'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 
@@ -45,7 +44,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
         ReactiveFormsModule
     ],
     providers: [
-        { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' }}
+        { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline' } }
     ],
     bootstrap: [
         AppComponent

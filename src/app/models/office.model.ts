@@ -27,6 +27,7 @@ export class Office {
         this.emailAddress = jsonObject.emailAddress
         this.maximumCapacity = jsonObject.maximumCapacity
         this.colour = jsonObject.colour
+        // eslint-disable-next-line no-extra-parens
         this.officeMembers = (jsonObject.officeMembers && jsonObject.officeMembers.map(x => new OfficeMember(x))) || []
     }
 }

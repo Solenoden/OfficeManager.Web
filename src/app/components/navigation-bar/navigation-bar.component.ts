@@ -8,12 +8,12 @@ import { Location } from '@angular/common'
 })
 export class NavigationBarComponent {
     @Input() title: string
-    @Output() onBackwardsNavigation: EventEmitter<void> = new EventEmitter<void>()
+    @Output() backwardsNavigation: EventEmitter<void> = new EventEmitter<void>()
 
     constructor(private location: Location) {}
 
     public navigateBackwards(): void {
-        this.onBackwardsNavigation.emit()
+        this.backwardsNavigation.emit()
         this.location.back()
     }
 }

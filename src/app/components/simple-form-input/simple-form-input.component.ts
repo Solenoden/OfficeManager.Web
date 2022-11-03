@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms'
     styleUrls: ['./simple-form-input.component.scss']
 })
 export class SimpleFormInputComponent {
+    // eslint-disable-next-line @angular-eslint/no-input-rename
     @Input('control') formControl: FormControl
     @Input() displayName: string
     @Input() type = 'text'

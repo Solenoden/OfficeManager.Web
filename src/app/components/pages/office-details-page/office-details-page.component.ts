@@ -81,13 +81,17 @@ export class OfficeDetailsPageComponent implements OnInit {
 
         if (this.officeForm.valid) {
             const office = new Office(this.officeForm.value)
-            const observable = this.isNewOffice ? this.officeService.createOffice(office) : this.officeService.updateOffice(office.id, office)
+            const observable = this.isNewOffice ?
+                this.officeService.createOffice(office) :
+                this.officeService.updateOffice(office.id, office)
 
             observable.subscribe(() => {
                 void this.router.navigate(['..'])
-                this.uiService.displayInformationMessage('Office successfully ' + (this.isNewOffice ? 'created' : 'updated') + '.')
+                this.uiService.displayInformationMessage(
+                    'Office successfully ' + (this.isNewOffice ? 'created' : 'updated') + '.'
+                )
             }, () => {
-                this.uiService.displayErrorMessage('An unexpected error occurred while creating/updating the office. Please try again later.')
+                this.uiService.displayErrorMessage('creating/updating the office')
             })
         } else {
             this.uiService.scrollToPageTop()
