@@ -1,0 +1,20 @@
+@use '~@angular/material' as material;
+@import '../app.theme';
+
+.toast-error {
+    background-color: material.get-color-from-palette($warn-palette, 500) !important;
+    color: material.get-color-from-palette($warn-palette, 500-contrast) !important;
+
+    button {
+        color: material.get-color-from-palette($warn-palette, 500-contrast) !important;
+    }
+}
+
+.toast-information {
+    background-color: material.get-color-from-palette($accent-palette, 400) !important;
+    color: material.get-color-from-palette($accent-palette, 400-contrast) !important;
+
+    button {
+        color: material.get-color-from-palette($accent-palette, 400-contrast) !important;
+    }
+}

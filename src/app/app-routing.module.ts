@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { OfficeListPageComponent } from './components/pages/home-page/office-list-page.component'
+import { OfficeListPageComponent } from './components/pages/office-list-page/office-list-page.component'
 import { OfficeOverviewPageComponent } from './components/pages/office-overview-page/office-overview-page.component'
+import { OfficeDetailsPageComponent } from './components/pages/office-details-page/office-details-page.component'
 
 const routes: Routes = [
     {
@@ -11,6 +12,10 @@ const routes: Routes = [
     {
         path: 'office/overview',
         component: OfficeOverviewPageComponent
+    },
+    {
+        path: 'office/details',
+        component: OfficeDetailsPageComponent
     },
     {
         path: '**',
