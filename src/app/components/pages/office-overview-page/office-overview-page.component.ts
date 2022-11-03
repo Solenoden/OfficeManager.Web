@@ -4,6 +4,7 @@ import { OfficeService } from '../../../services/office.service'
 import { OfficeMember } from '../../../models/office-member.model'
 import { Subject } from 'rxjs'
 import { debounceTime } from 'rxjs/operators'
+import { UiService } from '../../../services/ui.service'
 
 @Component({
     selector: 'app-office-overview-page',
@@ -17,7 +18,8 @@ export class OfficeOverviewPageComponent implements OnInit {
     private searchTextChange$: Subject<void> = new Subject<void>()
 
     constructor(
-        private officeService: OfficeService
+        private officeService: OfficeService,
+        private uiService: UiService
     ) {}
 
     ngOnInit(): void {
@@ -26,10 +28,11 @@ export class OfficeOverviewPageComponent implements OnInit {
     }
 
     private getSelectedOffice(): void {
-        // TODO: Add error handling
         this.officeService.getSelectedOffice().subscribe(result => {
             this.office = result
             this.search()
+        }, () => {
+            this.uiService.displayErrorMessage('loading selected office')
         })
     }
 

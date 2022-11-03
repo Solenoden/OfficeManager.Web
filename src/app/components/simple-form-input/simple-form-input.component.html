@@ -2,5 +2,5 @@
     <mat-form-field class="w-100">
         <input matInput [formControl]="formControl" [type]="type" [placeholder]="displayName">
     </mat-form-field>
-    <mat-error *ngIf="hasBeenSubmitted && formControl.invalid">{{ getErrorMessage() }}</mat-error>
+    <mat-error *ngIf="hasBeenSubmitted && formControl.invalid">{{ errorMessage }}</mat-error>
 </div>
