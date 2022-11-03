@@ -71,13 +71,13 @@ export class OfficeService {
 
     public createOffice(office: Office): Observable<void> {
         return new Observable<void>(observer => {
-            this.httpService.put('/office', office).subscribe(result => {
+            this.httpService.put('/office', office).subscribe(() => {
                 observer.next()
 
-                // TODO: Mutate the app state instead of making an http call to retrieve all offices again
+                // TODO: Mutate the app state instead of making a http call to retrieve all offices again
                 this.retrieveOffices()
             }, error => {
-                observer.error()
+                observer.error(error)
             }, () => {
                 observer.complete()
             })
@@ -85,12 +85,32 @@ export class OfficeService {
     }
 
     public updateOffice(officeId: number, office: Office): Observable<void> {
-        // TODO: Implement
         return new Observable<void>(observer => {
-            this.retrieveOffices()
+            this.httpService.patch(`/office/${officeId}`, office).subscribe(() => {
+                observer.next()
 
-            observer.next()
-            observer.complete()
+                // TODO: Mutate the app state instead of making a http call to retrieve all offices again
+                this.retrieveOffices()
+            }, error => {
+                observer.error(error)
+            }, () => {
+                observer.complete()
+            })
+        })
+    }
+
+    public deleteOffice(officeId: number): Observable<void> {
+        return new Observable<void>(observer => {
+            this.httpService.delete(`/office/${officeId}`).subscribe(() => {
+                observer.next()
+
+                // TODO: Mutate the app state instead of making a http call to retrieve all offices again
+                this.retrieveOffices()
+            }, error => {
+                observer.error(error)
+            }, () => {
+                observer.complete()
+            })
         })
     }
 

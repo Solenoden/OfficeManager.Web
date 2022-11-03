@@ -30,3 +30,8 @@ button {
     background-color: material.get-color-from-palette($warn-palette, 500);
     color: material.get-color-from-palette($warn-palette, 500-contrast);
 }
+
+.text-button {
+    background: none;
+    color: material.get-color-from-palette($primary-palette, 500);
+}
