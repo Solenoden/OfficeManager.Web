@@ -1,4 +1,4 @@
-<div id="card" class="column">
+<div id="card" [class]="'column office-' + office.colour + '-left-border'">
     <div class="row justify-content-between" (click)="editOffice()">
         <h3>{{ office.name }}</h3>
         <img src="./assets/icons/edit-icon.svg" alt="edit icon">
