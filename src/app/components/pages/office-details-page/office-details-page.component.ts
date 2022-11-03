@@ -7,6 +7,7 @@ import { UiService } from '../../../services/ui.service'
 import { ValidationService } from '../../../services/validation.service'
 
 enum FormField {
+    Id = 'id',
     Name = 'name',
     Address = 'address',
     EmailAddress = 'emailAddress',
@@ -56,7 +57,7 @@ export class OfficeDetailsPageComponent implements OnInit {
             this.navbarTitle = this.isNewOffice ? 'New Office' : 'Edit Office'
 
             this.officeForm = this.formBuilder.group({
-                id: [result?.id],
+                [this.FormField.Id]: [result?.id],
                 [this.FormField.Name]: [result?.name, Validators.required],
                 [this.FormField.Address]: [result?.address, Validators.required],
                 [this.FormField.EmailAddress]: [result?.emailAddress, Validators.required],
@@ -75,6 +76,17 @@ export class OfficeDetailsPageComponent implements OnInit {
 
     public selectColour(colourName: string): void {
         this.getFormControl(FormField.Colour).setValue(colourName)
+    }
+
+    public deleteOffice(): void {
+        const officeId = this.getFormControl(FormField.Id).value as number
+
+        this.officeService.deleteOffice(officeId).subscribe(() => {
+            void this.router.navigate(['..'])
+            this.uiService.displayInformationMessage('Office successfully deleted')
+        }, () => {
+            this.uiService.displayErrorMessage('creating/updating the office')
+        })
     }
 
     public onSubmit(): void {

@@ -32,6 +32,8 @@ export class OfficeCardComponent implements OnInit {
         if (this.shouldSelectOffice) {
             this.officeService.setSelectedOfficeId(this.office.id)
             void this.router.navigate(['/office/overview'])
+        } else {
+            void this.router.navigate(['/office/details'])
         }
     }
 }

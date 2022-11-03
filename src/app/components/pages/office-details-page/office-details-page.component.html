@@ -19,5 +19,8 @@
         </mat-error>
     </div>
 
-    <button id="btn-add-office mx-auto" class="primary-button my-4" (click)="onSubmit()">ADD OFFICE</button>
+    <div class="column my-4">
+        <button id="btn-add-office mx-auto" class="primary-button" (click)="onSubmit()">{{ isNewOffice ? 'ADD' : 'UPDATE' }} OFFICE</button>
+        <button id="btn-delete-office mx-auto" *ngIf="!isNewOffice" class="text-button my-4" (click)="deleteOffice()">DELETE OFFICE</button>
+    </div>
 </div>
