@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { FormControl } from '@angular/forms'
+import { ValidationService } from '../../services/validation.service'
 
 @Component({
     selector: 'app-simple-form-input',
@@ -13,12 +14,9 @@ export class SimpleFormInputComponent {
     @Input() type = 'text'
     @Input() hasBeenSubmitted: boolean
 
-    public getErrorMessage(): string {
-        // TODO: Extract error message logic to a service
-        if (this.formControl.errors.required) {
-            return this.displayName ? this.displayName + ' is required' : 'This field is required'
-        }
+    constructor(public validationService: ValidationService) {}
 
-        return 'Please provide a valid ' + (this.displayName ? this.displayName : 'value')
+    public get errorMessage(): string {
+        return this.validationService.getFormControlErrorMessage(this.formControl, this.displayName)
     }
 }

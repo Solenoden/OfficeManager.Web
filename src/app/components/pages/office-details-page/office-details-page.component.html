@@ -9,9 +9,14 @@
         <app-simple-form-input class="mt-3" displayName="Maximum Capacity" [control]="getFormControl(FormField.MaximumCapacity)" [hasBeenSubmitted]="hasFormBeenSubmitted"></app-simple-form-input>
     </form>
 
-    <h3>Office Colour</h3>
-    <div id="colours-list" class="row flex-wrap">
-        <span *ngFor="let colour of possibleColours" [class]="'colour-circle office-' + colour" [class.selected]="getFormControl(FormField.Colour).value === colour" (click)="selectColour(colour)"></span>
+    <div>
+        <h3>Office Colour</h3>
+        <div id="colours-list" class="row flex-wrap">
+            <span *ngFor="let colour of possibleColours" [class]="'colour-circle office-' + colour" [class.selected]="getFormControl(FormField.Colour).value === colour" (click)="selectColour(colour)"></span>
+        </div>
+        <mat-error *ngIf="hasFormBeenSubmitted && getFormControl(FormField.Colour).invalid">
+            {{ validationService.getFormControlErrorMessage(getFormControl(FormField.Colour), 'Colour') }}
+        </mat-error>
     </div>
 
     <button id="btn-add-office mx-auto" class="primary-button my-4" (click)="onSubmit()">ADD OFFICE</button>

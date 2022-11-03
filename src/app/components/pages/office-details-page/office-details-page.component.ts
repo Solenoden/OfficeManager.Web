@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Office } from '../../../models/office.model'
 import { Router } from '@angular/router'
 import { UiService } from '../../../services/ui.service'
+import { ValidationService } from '../../../services/validation.service'
 
 enum FormField {
     Name = 'name',
@@ -32,7 +33,8 @@ export class OfficeDetailsPageComponent implements OnInit {
         private officeService: OfficeService,
         private formBuilder: FormBuilder,
         private router: Router,
-        private uiService: UiService
+        private uiService: UiService,
+        public validationService: ValidationService
     ) {}
 
     ngOnInit(): void {
@@ -60,7 +62,7 @@ export class OfficeDetailsPageComponent implements OnInit {
                 [this.FormField.EmailAddress]: [result?.emailAddress, Validators.required],
                 [this.FormField.PhoneNumber]: [result?.phoneNumber, Validators.required],
                 [this.FormField.MaximumCapacity]: [result?.maximumCapacity, Validators.required],
-                [this.FormField.Colour]: [result?.colour || 'gold', Validators.required]
+                [this.FormField.Colour]: [result?.colour, Validators.required]
             })
         }, () => {
             this.uiService.displayErrorMessage('loading the selected office')
