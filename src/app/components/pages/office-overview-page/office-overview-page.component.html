@@ -2,4 +2,22 @@
     <app-navigation-bar title="Office"></app-navigation-bar>
 </div>
 
-<app-office-card [office]="office" [shouldSelectOffice]="false"></app-office-card>
+<app-office-card [office]="office" [shouldSelectOffice]="false" [shouldInitiallyOpen]="true"></app-office-card>
+
+<div>
+    <mat-form-field appearance="outline" id="search-input" class="mt-3">
+        <input matInput [(ngModel)]="searchText" placeholder="Search" (input)="onSearchTextChange()">
+        <img src="../../../../assets/icons/search-icon.svg" alt="search icon" matSuffix>
+    </mat-form-field>
+</div>
+
+<div class="row justify-content-between mb-3">
+    <h3>Staff Members in Office</h3>
+    <h4 class="vertically-align ml-3">{{ office.officeMembers?.length }}</h4>
+</div>
+
+<ng-container *ngIf="office.officeMembers?.length > 0">
+    <div class="my-3" *ngFor="let officeMember of searchResults">
+        <app-office-member-item [officeMember]="officeMember"></app-office-member-item>
+    </div>
+</ng-container>

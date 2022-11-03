@@ -1,13 +1,12 @@
 <div id="card" class="column">
-    <div class="row space-between" (click)="editOffice()">
+    <div class="row justify-content-between" (click)="editOffice()">
         <h3>{{ office.name }}</h3>
         <img src="./assets/icons/edit-icon.svg" alt="edit icon">
     </div>
 
     <div class="row">
-        <img src="./assets/icons/group-greyscale-icon.svg" alt="group icon">
-        <!--    TODO: Dynamically display amount of members linked to the office    -->
-        <span><strong>5</strong> Staff Members in Office</span>
+        <img src="./assets/icons/group-greyscale-icon.svg" alt="group icon" class="mr-2">
+        <span><strong>{{ office.officeMembers?.length }}</strong> Staff Members in Office</span>
     </div>
 
     <div id="divider"></div>
@@ -36,5 +35,4 @@
             <span>{{ office.address }}</span>
         </div>
     </div>
-
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { Office } from '../../models/office.model'
 import { Router } from '@angular/router'
 import { OfficeService } from '../../services/office.service'
@@ -8,11 +8,16 @@ import { OfficeService } from '../../services/office.service'
     templateUrl: './office-card.component.html',
     styleUrls: ['./office-card.component.scss']
 })
-export class OfficeCardComponent {
+export class OfficeCardComponent implements OnInit {
     @Input() office: Office
-    @Input() shouldSelectOffice: boolean
+    @Input() shouldSelectOffice = false
+    @Input() shouldInitiallyOpen = false
 
     public isCardExpanded = false
+
+    ngOnInit(): void {
+        this.isCardExpanded = this.shouldInitiallyOpen
+    }
 
     constructor(
         private router: Router,
