@@ -13,7 +13,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import { MatDialogModule } from '@angular/material/dialog'
 import { OfficeCardComponent } from './components/office-card/office-card.component'
 import { OfficeOverviewPageComponent } from './components/pages/office-overview-page/office-overview-page.component'
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component'
 import { OfficeMemberItemComponent } from './components/office-member-item/office-member-item.component'
 
 @NgModule({
