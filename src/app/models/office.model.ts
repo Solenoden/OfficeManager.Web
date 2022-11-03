@@ -27,6 +27,6 @@ export class Office {
         this.emailAddress = jsonObject.emailAddress
         this.maximumCapacity = jsonObject.maximumCapacity
         this.colour = jsonObject.colour
-        this.officeMembers = jsonObject.officeMembers.map(x => new OfficeMember(x))
+        this.officeMembers = (jsonObject.officeMembers && jsonObject.officeMembers.map(x => new OfficeMember(x))) || []
     }
 }

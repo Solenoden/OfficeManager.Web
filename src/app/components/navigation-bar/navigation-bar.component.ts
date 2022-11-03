@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Location } from '@angular/common'
 
 @Component({
@@ -8,10 +8,12 @@ import { Location } from '@angular/common'
 })
 export class NavigationBarComponent {
     @Input() title: string
+    @Output() onBackwardsNavigation: EventEmitter<void> = new EventEmitter<void>()
 
     constructor(private location: Location) {}
 
     public navigateBackwards(): void {
+        this.onBackwardsNavigation.emit()
         this.location.back()
     }
 }

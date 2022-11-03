@@ -41,6 +41,10 @@ export class OfficeService {
         this.stateService.setState<number>(StateKey.SelectedOfficeId, officeId)
     }
 
+    public clearSelectedOfficeId(): void {
+        this.stateService.setState<number>(StateKey.SelectedOfficeId, null)
+    }
+
     public getSelectedOffice(): Observable<Office> {
         return new Observable<Office>(observer => {
             if (!this.selectedOfficeId) {
@@ -61,6 +65,51 @@ export class OfficeService {
             }
 
             observer.next(this.offices.find(currentOffice => currentOffice.id === this.selectedOfficeId))
+            observer.complete()
+        })
+    }
+
+    public createOffice(office: Office): Observable<void> {
+        return new Observable<void>(observer => {
+            this.httpService.put('/office', office).subscribe(result => {
+                observer.next()
+
+                // TODO: Mutate the app state instead of making an http call to retrieve all offices again
+                this.retrieveOffices()
+            }, error => {
+                observer.error()
+            }, () => {
+                observer.complete()
+            })
+        })
+    }
+
+    public updateOffice(officeId: number, office: Office): Observable<void> {
+        // TODO: Implement
+        return new Observable<void>(observer => {
+            this.retrieveOffices()
+
+            observer.next()
+            observer.complete()
+        })
+    }
+
+    public getOfficeColours(): Observable<string[]> {
+        return new Observable<string[]>(observer => {
+            // TODO: Retrieve possible colours from the API
+            observer.next([
+                'yellow',
+                'peach',
+                'orange',
+                'brown',
+                'lilac',
+                'pink',
+                'mint',
+                'green',
+                'light-blue',
+                'blue',
+                'purple'
+            ])
             observer.complete()
         })
     }

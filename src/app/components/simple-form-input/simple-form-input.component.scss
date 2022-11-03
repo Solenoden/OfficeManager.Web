@@ -1,0 +1,9 @@
+:host::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+}
+
+mat-error {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}

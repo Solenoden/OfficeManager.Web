@@ -1,0 +1,32 @@
+@use '~@angular/material' as material;
+@import '../app.theme';
+
+@mixin pill-shaped-button {
+    border-radius: 100px;
+    padding: 16px 32px;
+}
+
+button {
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.primary-button {
+    @include pill-shaped-button();
+    background-color: material.get-color-from-palette($primary-palette, 500);
+    color: material.get-color-from-palette($primary-palette, 500-contrast);
+}
+
+.warning-button {
+    @include pill-shaped-button();
+    background-color: material.get-color-from-palette($warn-palette, 500);
+    color: material.get-color-from-palette($warn-palette, 500-contrast);
+}

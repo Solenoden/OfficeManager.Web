@@ -1,0 +1,18 @@
+<app-navigation-bar *ngIf="navbarTitle" [title]="navbarTitle"></app-navigation-bar>
+
+<div class="column mt-5">
+    <form [formGroup]="officeForm" class="column">
+        <app-simple-form-input displayName="Office Name" [control]="getFormControl(FormField.Name)" [hasBeenSubmitted]="hasFormBeenSubmitted"></app-simple-form-input>
+        <app-simple-form-input class="mt-3" displayName="Physical Address" [control]="getFormControl(FormField.Address)" [hasBeenSubmitted]="hasFormBeenSubmitted"></app-simple-form-input>
+        <app-simple-form-input class="mt-3" displayName="Email Address" [control]="getFormControl(FormField.EmailAddress)" [hasBeenSubmitted]="hasFormBeenSubmitted"></app-simple-form-input>
+        <app-simple-form-input class="mt-3" displayName="Phone Number" [control]="getFormControl(FormField.PhoneNumber)" [hasBeenSubmitted]="hasFormBeenSubmitted"></app-simple-form-input>
+        <app-simple-form-input class="mt-3" displayName="Maximum Capacity" [control]="getFormControl(FormField.MaximumCapacity)" [hasBeenSubmitted]="hasFormBeenSubmitted"></app-simple-form-input>
+    </form>
+
+    <h3>Office Colour</h3>
+    <div id="colours-list" class="row flex-wrap">
+        <span *ngFor="let colour of possibleColours" [class]="'colour-circle office-' + colour" [class.selected]="getFormControl(FormField.Colour).value === colour" (click)="selectColour(colour)"></span>
+    </div>
+
+    <button id="btn-add-office mx-auto" class="primary-button my-4" (click)="onSubmit()">ADD OFFICE</button>
+</div>

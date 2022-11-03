@@ -3,6 +3,9 @@
 @import './app/theme/app.theme';
 @import 'app/theme/styles/typography-styles';
 @import 'app/theme/styles/input-control-styles';
+@import 'app/theme/styles/button-styles';
+@import 'app/theme/styles/office-colour-styles';
+@import 'app/theme/styles/modal.styles';
 
 @include material.all-component-themes($app-theme);
 @include material.core();
@@ -34,4 +37,8 @@ body {
     height: fit-content;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.w-100 {
+    width: 100%
 }

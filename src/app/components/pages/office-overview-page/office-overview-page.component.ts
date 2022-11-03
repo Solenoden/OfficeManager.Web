@@ -48,4 +48,8 @@ export class OfficeOverviewPageComponent implements OnInit {
     public onSearchTextChange(): void {
         this.searchTextChange$.next()
     }
+
+    public onBackwardsNavigation(): void {
+        this.officeService.clearSelectedOfficeId()
+    }
 }
