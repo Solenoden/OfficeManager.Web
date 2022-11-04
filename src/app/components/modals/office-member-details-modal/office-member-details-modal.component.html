@@ -29,5 +29,7 @@
         <span class="mr-2 form-step-indicator" [class.current-form-step]="currentFormStep === formStep" *ngFor="let formStep of formSteps"></span>
     </div>
 
-    <button class="primary-button" (click)="stepForward()">{{ isOnLastFormStep ? 'ADD STAFF MEMBER' : 'NEXT' }}</button>
+    <button class="primary-button" (click)="stepForward()">
+        {{ isOnLastFormStep ? (isNewOfficeMember ? 'ADD' : 'UPDATE' + ' STAFF MEMBER') : 'NEXT' }}
+    </button>
 </div>

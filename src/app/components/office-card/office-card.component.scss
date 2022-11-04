@@ -32,6 +32,15 @@
     background-color: material.get-color-from-palette($accent-palette, 500);
 }
 
+#btn-edit {
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .row span {
     height: fit-content;
     margin-top: auto;

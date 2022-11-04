@@ -52,6 +52,22 @@ export class OfficeMemberService {
         })
     }
 
+    public deleteOfficeMember(officeMemberId: number): Observable<void> {
+        return new Observable<void>(observer => {
+            this.httpService.delete(`/office-member/${officeMemberId}`).subscribe(() => {
+                // TODO: Mutate the app state instead of making a http call to retrieve all offices again
+                this.officeService.retrieveOffices().subscribe(() => {
+                    observer.next()
+                    observer.complete()
+                }, error => {
+                    observer.error(error)
+                })
+            }, error => {
+                observer.error(error)
+            })
+        })
+    }
+
     public setSelectedOfficeMemberId(officeMemberId: number): void {
         this.stateService.setState<number>(StateKey.SelectedOfficeMemberId, officeMemberId)
     }

@@ -18,7 +18,7 @@
 
 <ng-container *ngIf="office.officeMembers?.length > 0">
     <div class="my-3" *ngFor="let officeMember of searchResults">
-        <app-office-member-item [officeMember]="officeMember"></app-office-member-item>
+        <app-office-member-item [officeMember]="officeMember" (delete)="deleteOfficeMember(officeMember.id)" (edit)="openOfficeMemberDetailsDialog(officeMember.id)"></app-office-member-item>
     </div>
 </ng-container>
 

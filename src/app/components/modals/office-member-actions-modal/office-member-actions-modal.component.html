@@ -1,0 +1,17 @@
+<div id="content-container">
+    <div *ngIf="isAttemptingToDelete">
+        <div id="navigation-bar-container" class="mb-4">
+            <app-navigation-bar title="Are You Sure You Want To Delete Staff Member?" (backwardsNavigation)="goBackToActions()"></app-navigation-bar>
+        </div>
+
+        <div class="button-container">
+            <button class="warning-button" (click)="deleteOfficeMember()">DELETE STAFF MEMBER</button>
+            <button class="text-button" (click)="goBackToActions()">KEEP STAFF MEMBER</button>
+        </div>
+    </div>
+
+    <div *ngIf="!isAttemptingToDelete" class="button-container">
+        <button class="primary-button" (click)="editOfficeMember()">EDIT STAFF MEMBER</button>
+        <button class="text-button" (click)="displayDeletionConfirmation()">DELETE STAFF MEMBER</button>
+    </div>
+</div>

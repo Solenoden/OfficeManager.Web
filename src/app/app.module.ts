@@ -21,6 +21,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 // eslint-disable-next-line max-len
 import { OfficeMemberDetailsModalComponent } from './components/modals/office-member-details-modal/office-member-details-modal.component'
 import { FloatingActionButtonComponent } from './components/floating-action-button/floating-action-button.component'
+// eslint-disable-next-line max-len
+import { OfficeMemberActionsModalComponent } from './components/modals/office-member-actions-modal/office-member-actions-modal.component'
 
 @NgModule({
     declarations: [
@@ -33,7 +35,8 @@ import { FloatingActionButtonComponent } from './components/floating-action-butt
         OfficeDetailsPageComponent,
         SimpleFormInputComponent,
         OfficeMemberDetailsModalComponent,
-        FloatingActionButtonComponent
+        FloatingActionButtonComponent,
+        OfficeMemberActionsModalComponent
     ],
     imports: [
         BrowserModule,

@@ -1,5 +1,5 @@
 <div class="row justify-content-between">
     <img [src]="'../../../assets/avatars/avatar-' + officeMember.avatarId + '.svg'" alt="avatar">
     <span class="vertically-align">{{ (officeMember.firstName + ' ' + officeMember.lastName) | titlecase }}</span>
-    <img src="../../../assets/icons/more-options-icon.svg" alt="options icon">
+    <img id="btn-options" (click)="openActionsDialog()" src="../../../assets/icons/more-options-icon.svg" alt="options icon">
 </div>
