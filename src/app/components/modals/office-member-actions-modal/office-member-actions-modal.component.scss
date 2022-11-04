@@ -1,0 +1,14 @@
+#navigation-bar-container {
+    max-width: 270px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+        max-width: 240px;
+        margin: 0 auto 16px auto;
+    }
+}

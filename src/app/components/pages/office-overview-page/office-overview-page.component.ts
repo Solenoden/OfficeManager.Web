@@ -70,4 +70,13 @@ export class OfficeOverviewPageComponent implements OnInit {
             this.getSelectedOffice()
         })
     }
+
+    public deleteOfficeMember(officeMemberId: number): void {
+        this.officeMemberService.deleteOfficeMember(officeMemberId).subscribe(() => {
+            this.getSelectedOffice()
+            this.uiService.displayInformationMessage('Successfully deleted staff member.')
+        }, () => {
+            this.uiService.displayErrorMessage('deleting staff member')
+        })
+    }
 }
