@@ -10,4 +10,5 @@ RUN npm run build-prod
 FROM nginx:latest
 COPY --from=build-step /app/dist/OfficeManagerWeb /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && envsubst </usr/share/nginx/html/environments/env.template.js> /usr/share/nginx/html/environments/env.js && nginx -g 'daemon off;'
+EXPOSE 4200
+CMD sed -i -e 's/4200/'"4200"'/g' /etc/nginx/conf.d/default.conf && envsubst </usr/share/nginx/html/environments/env.template.js> /usr/share/nginx/html/environments/env.js && nginx -g 'daemon off;'
