@@ -18,6 +18,9 @@ import { OfficeDetailsPageComponent } from './components/pages/office-details-pa
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field'
 import { SimpleFormInputComponent } from './components/simple-form-input/simple-form-input.component'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+// eslint-disable-next-line max-len
+import { OfficeMemberDetailsModalComponent } from './components/modals/office-member-details-modal/office-member-details-modal.component'
+import { FloatingActionButtonComponent } from './components/floating-action-button/floating-action-button.component'
 
 @NgModule({
     declarations: [
@@ -28,7 +31,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
         NavigationBarComponent,
         OfficeMemberItemComponent,
         OfficeDetailsPageComponent,
-        SimpleFormInputComponent
+        SimpleFormInputComponent,
+        OfficeMemberDetailsModalComponent,
+        FloatingActionButtonComponent
     ],
     imports: [
         BrowserModule,

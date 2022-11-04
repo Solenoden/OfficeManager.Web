@@ -13,7 +13,7 @@ export class UiService {
         private ngZone: NgZone
     ) {}
 
-    public openDialog<T>(component: ComponentType<T>, data: Record<string, unknown>): MatDialogRef<any> {
+    public openDialog<T>(component: ComponentType<T>, data?: Record<string, unknown>): MatDialogRef<any> {
         return this.dialog.open(component, { data })
     }
 

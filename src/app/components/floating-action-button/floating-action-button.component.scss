@@ -1,0 +1,19 @@
+@use '~@angular/material' as material;
+@import '../../theme/app.theme';
+
+button {
+    width: 57px;
+    height: 57px;
+    padding: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: material.get-color-from-palette($accent-palette, 500);
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}

@@ -5,6 +5,10 @@ import { OfficeMember } from '../../../models/office-member.model'
 import { Subject } from 'rxjs'
 import { debounceTime } from 'rxjs/operators'
 import { UiService } from '../../../services/ui.service'
+import { OfficeMemberService } from '../../../services/office-member.service'
+import {
+    OfficeMemberDetailsModalComponent
+} from '../../modals/office-member-details-modal/office-member-details-modal.component'
 
 @Component({
     selector: 'app-office-overview-page',
@@ -19,6 +23,7 @@ export class OfficeOverviewPageComponent implements OnInit {
 
     constructor(
         private officeService: OfficeService,
+        private officeMemberService: OfficeMemberService,
         private uiService: UiService
     ) {}
 
@@ -54,5 +59,15 @@ export class OfficeOverviewPageComponent implements OnInit {
 
     public onBackwardsNavigation(): void {
         this.officeService.clearSelectedOfficeId()
+    }
+
+    public openOfficeMemberDetailsDialog(officeMemberId?: number): void {
+        if (officeMemberId) {
+            this.officeMemberService.setSelectedOfficeMemberId(officeMemberId)
+        }
+
+        this.uiService.openDialog(OfficeMemberDetailsModalComponent).afterClosed().subscribe(result => {
+            this.getSelectedOffice()
+        })
     }
 }
