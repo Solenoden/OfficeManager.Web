@@ -1,0 +1,33 @@
+<div id="content-container" class="column">
+    <div class="row justify-content-between mb-3">
+        <img *ngIf="currentStepIndex !== 0" (click)="stepBack()" class="mr-1" src="../../../../assets/icons/arrow-left-icon.svg" alt="back icon">
+        <h3>New Staff Member</h3>
+        <img (click)="closeModal(false)" class="ml-1" src="../../../../assets/icons/close-icon.svg" alt="close icon">
+    </div>
+
+    <form [formGroup]="getFormInfo(FormStep.PersonalInfo)?.form" class="column" *ngIf="currentFormStep === FormStep.PersonalInfo">
+        <app-simple-form-input displayName="First Name" [control]="getFormControl(FormField.FirstName)" [hasBeenSubmitted]="getFormInfo(FormStep.PersonalInfo)?.hasBeenSubmitted"></app-simple-form-input>
+        <app-simple-form-input class="mt-3" displayName="Last Name" [control]="getFormControl(FormField.LastName)" [hasBeenSubmitted]="getFormInfo(FormStep.PersonalInfo)?.hasBeenSubmitted"></app-simple-form-input>
+    </form>
+
+    <div *ngIf="currentFormStep === FormStep.AvatarSelection">
+        <h3>Avatar</h3>
+        <div id="avatars-list" class="row flex-wrap">
+            <img *ngFor="let avatarId of possibleAvatarIds"
+                 (click)="selectAvatar(avatarId)"
+                 [src]="'../../../../assets/avatars/avatar-' + avatarId + '.svg'"
+                 class="avatar"
+                 [class.selected]="getFormControl(FormField.AvatarId).value === avatarId"
+                 alt="avatar">
+        </div>
+        <mat-error *ngIf="getFormInfo(FormStep.AvatarSelection)?.hasBeenSubmitted && getFormControl(FormField.AvatarId).invalid">
+            {{ validationService.getFormControlErrorMessage(getFormControl(FormField.AvatarId), 'Avatar') }}
+        </mat-error>
+    </div>
+
+    <div class="row justify-content-center my-4">
+        <span class="mr-2 form-step-indicator" [class.current-form-step]="currentFormStep === formStep" *ngFor="let formStep of formSteps"></span>
+    </div>
+
+    <button class="primary-button" (click)="stepForward()">{{ isOnLastFormStep ? 'ADD STAFF MEMBER' : 'NEXT' }}</button>
+</div>

@@ -72,14 +72,15 @@ export class OfficeService {
     public createOffice(office: Office): Observable<void> {
         return new Observable<void>(observer => {
             this.httpService.put('/office', office).subscribe(() => {
-                observer.next()
-
                 // TODO: Mutate the app state instead of making a http call to retrieve all offices again
-                this.retrieveOffices()
+                this.retrieveOffices().subscribe(() => {
+                    observer.next()
+                    observer.complete()
+                }, error => {
+                    observer.error(error)
+                })
             }, error => {
                 observer.error(error)
-            }, () => {
-                observer.complete()
             })
         })
     }
@@ -87,14 +88,15 @@ export class OfficeService {
     public updateOffice(officeId: number, office: Office): Observable<void> {
         return new Observable<void>(observer => {
             this.httpService.patch(`/office/${officeId}`, office).subscribe(() => {
-                observer.next()
-
                 // TODO: Mutate the app state instead of making a http call to retrieve all offices again
-                this.retrieveOffices()
+                this.retrieveOffices().subscribe(() => {
+                    observer.next()
+                    observer.complete()
+                }, error => {
+                    observer.error(error)
+                })
             }, error => {
                 observer.error(error)
-            }, () => {
-                observer.complete()
             })
         })
     }
@@ -102,14 +104,15 @@ export class OfficeService {
     public deleteOffice(officeId: number): Observable<void> {
         return new Observable<void>(observer => {
             this.httpService.delete(`/office/${officeId}`).subscribe(() => {
-                observer.next()
-
                 // TODO: Mutate the app state instead of making a http call to retrieve all offices again
-                this.retrieveOffices()
+                this.retrieveOffices().subscribe(() => {
+                    observer.next()
+                    observer.complete()
+                }, error => {
+                    observer.error(error)
+                })
             }, error => {
                 observer.error(error)
-            }, () => {
-                observer.complete()
             })
         })
     }

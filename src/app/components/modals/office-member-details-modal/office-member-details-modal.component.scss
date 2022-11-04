@@ -1,0 +1,48 @@
+@use '@angular/material' as material;
+@import '../../../theme/app.theme';
+@import '../../../theme/mixins/apply-to-tablet-and-larger.mixin';
+
+#content-container {
+    min-width: 250px;
+}
+
+.form-step-indicator {
+    width: 4px;
+    height: 4px;
+    border: 1.5px solid material.get-color-from-palette($primary-palette, 500);
+    border-radius: 50%;
+
+    &.current-form-step {
+        background-color: material.get-color-from-palette($primary-palette, 500);
+    }
+}
+
+#avatars-list {
+    max-width: 350px;
+    justify-content: center;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    margin-right: 24px;
+    margin-bottom: 36px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.selected {
+        border: 4px solid $neutral-grey;
+    }
+}
+
+@include apply-to-tablet-and-larger {
+    .form-step-indicator {
+        width: 8px;
+        height: 8px;
+    }
+}
